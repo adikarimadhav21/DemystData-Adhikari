@@ -16,12 +16,12 @@
 
 |   #   | File            | Description                                        |
 | :---: | --------------- | -------------------------------------------------- |
-|   1   | [spec.json](problem1/data/input/spec.json )       | A JSON file that have the column names, field offsets, and other metadata.   |
-|   2  |[ generate_fixedwidth_file.py](problem1/src/generate_fixedwidth_file.py )      | main script to generate fixedwidth file   |
-|   3  |[ fixed_width_file.txt](problem1/data/output/fixed_width_file.txt )      |This file will stored output as fixed_width   |
-|   4 |[ parser_fixedwidth_to_delimited.py](problem1/src/parser_fixedwidth_to_delimited.py )      |This file is main script to convert fixedwidth to csv file   |
-|   5  |[ test_parser_fixedwidth_to_delimited.py](problem1/test/test_parser_fixedwidth_to_delimited.py )      |This file have test cases to validate conversion   |
-|   6  |[ delimited_file.txt](problem1/data/output/delimited_file.txt)      |This file will stored output as delimited    |
+|   1   | [spec.json](https://github.com/adikarimadhav21/DemystData-Adhikari/blob/main/problem1/data/input/spec.json )       | A JSON file that have the column names, field offsets, and other metadata.   |
+|   2  |[ generate_fixedwidth_file.py](https://github.com/adikarimadhav21/DemystData-Adhikari/blob/main/problem1/src/generate_fixedwidth_file.py )      | main script to generate fixedwidth file   |
+|   3  |[ fixed_width_file.txt](https://github.com/adikarimadhav21/DemystData-Adhikari/blob/main/problem1/data/output/fixed_width_file.txt )      |This file will stored output as fixed_width   |
+|   4 |[ parser_fixedwidth_to_delimited.py](https://github.com/adikarimadhav21/DemystData-Adhikari/blob/main/problem1/src/parser_fixedwidth_to_delimited.py )      |This file is main script to convert fixedwidth to csv file   |
+|   5  |[ test_parser_fixedwidth_to_delimited.py](https://github.com/adikarimadhav21/DemystData-Adhikari/blob/main/problem1/test/test_parser_fixedwidth_to_delimited.py )      |This file have test cases to validate conversion   |
+|   6  |[ delimited_file.txt](https://github.com/adikarimadhav21/DemystData-Adhikari/blob/main/problem1/data/output/delimited_file.txt)      |This file will stored output as delimited    |
 
 
 
