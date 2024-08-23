@@ -1,0 +1,19 @@
+# Use a base image that includes Python and Spark
+FROM bitnami/spark:3.3.0
+
+# Set the working directory
+WORKDIR /app
+
+# Copy your project files into the Docker container
+COPY . /app
+
+# Install Python dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Ensure that Spark is executable from the environment
+ENV SPARK_HOME=/opt/bitnami/spark
+ENV PATH=$SPARK_HOME/bin:$PATH
+
+# Command to run both scripts sequentially
+CMD ["sh", "-c", "python problem2_generate_csv_file.py && spark-submit --master local[*] problem2_anonymise_data_spark.py"]

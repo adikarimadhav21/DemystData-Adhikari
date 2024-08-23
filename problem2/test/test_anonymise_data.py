@@ -13,7 +13,7 @@ class TestAnonymizeData(unittest.TestCase):
         self.anonymise_columns=["first_name", "last_name", "address"]
 
         # A sample data
-        self.sample_data = "Sean,Mclean,\"09751 Elizabeth Road, Madisonland, PR 08925\",08/13/1985\n"
+        self.sample_data = "first_name,last_name,address,date_of_birth\nSean,Mclean,\"09751 Elizabeth Road, Madisonland, PR 08925\",08/13/1985\n"
 
         # Expected  data
         self.expected_csv_data = [
@@ -50,23 +50,29 @@ class TestAnonymizeData(unittest.TestCase):
      
     #case 2: match with original and decode data
     def testDecode(self):
-       
-        
+
         converter = AnonymizeData(self.input_file,self.output_file,self.anonymise_columns)
         converter.anoymise_data()
+
+    # Expected  data
+        expected_csv_data = [
+            ['first_name', 'last_name', 'address','date_of_birth'],
+            ['Sean', 'Mclean', '09751 Elizabeth Road, Madisonland, PR 08925','08/13/1985']
+        ]
 
         # open the output CSV file
         decode_data = []
         with open(self.output_file, 'r', encoding="utf-8") as f:
             reader = csv.reader(f)
-        for row in reader:
-            row[0]=converter.unmask_string(row[0])
-            row[1]=converter.unmask_string(row[1])
-            row[2]=converter.base_64_decoding(row[2])
-            decode_data.append(row)
-            
+            for row in reader:
+                if not 'first_name' in row: # skip header
+                    row[0]=converter.unmask_string(row[0])
+                    row[1]=converter.unmask_string(row[1])
+                    row[2]=converter.base_64_decoding(row[2])
+                decode_data.append(row)
+
         #test case2
-        self.assertEqual(self.sample_data, decode_data)
+        self.assertEqual(expected_csv_data, decode_data)
 
 if __name__ == "__main__":
     unittest.main()

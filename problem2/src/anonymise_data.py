@@ -5,21 +5,15 @@ import os
 
 class AnonymizeData:
     def __init__(self,input_file,output_file,anonymise_columns):
-        # Dynamically find the base directory of the script
-        base_dir = os.path.dirname(os.path.abspath(__file__))
 
-        # Construct file paths using os.path.join
-        self.input_file = os.path.join(base_dir, input_file)
-        print("????????????????????????",base_dir)
-        print("????????????????????????",self.input_file)
-
-        self.output_file = os.path.join(base_dir, output_file)
+        self.input_file = input_file
+        self.output_file = output_file
         self.anonymise_columns=anonymise_columns
 
     
     def base_64_encoding(self,text):
         return str(base64.b64encode(text.encode("utf-8")).decode("utf-8"))
-#salt key use garne 
+
 
     def base_64_decoding(self,text):
         return str(base64.b64decode(text.encode('utf-8')).decode('utf-8'))
@@ -101,12 +95,12 @@ class AnonymizeData:
         self.close_files(input_file, out_file) 
         print(f"Anoymized CSV file in {self.output_file}")   
 
-def main():
-    input_file="../data/input/csv_file.txt"
-    output_file="../data/output/csv_file_anonymise.txt"
-    anonymise_columns=["first_name", "last_name", "address"]
-    anoymise=AnonymizeData(input_file,output_file,anonymise_columns)
-    anoymise.anoymise_data()
-
-if __name__=='__main__':
-    main()
+# def main():
+#     input_file="../data/input/csv_file.txt"
+#     output_file="../data/output/csv_file_anonymise.txt"
+#     anonymise_columns=["first_name", "last_name", "address"]
+#     anoymise=AnonymizeData(input_file,output_file,anonymise_columns)
+#     anoymise.anoymise_data()
+#
+# if __name__=='__main__':
+#     main()

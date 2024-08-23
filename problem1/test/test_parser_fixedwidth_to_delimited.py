@@ -1,7 +1,7 @@
 import unittest
 import os
 import csv
-from src.parser_fixedwidth_to_delimited import FixedWidthToDelimitedConvertor 
+from problem1.src.parser_fixedwidth_to_delimited import FixedWidthToDelimitedConvertor
 
 class TestFixedWidthToCSVConverter(unittest.TestCase):
     def setUp(self):
@@ -17,6 +17,7 @@ class TestFixedWidthToCSVConverter(unittest.TestCase):
 
         # A sample fixed-width 
         self.fixed_width_data = "xyz  def       ghi143 \njklmn opqr      stuvwx \n"
+        self.fixed_width_data_with_header = "c1    c2        c3    \nxyz  def       ghi143 \njklmn opqr      stuvwx \n"
 
         # Expected CSV data
         self.expected_csv_data = [
@@ -26,12 +27,10 @@ class TestFixedWidthToCSVConverter(unittest.TestCase):
         ]
 
         # Input and output file paths
-        self.input_file = 'problem1/data/output/test_fixed_width.txt'
-        self.output_file = 'problem1/data/output/test_output.csv'
+        self.input_file = 'problem1/data/output/problem1_test_fixed_width.txt'
+        self.output_file = 'problem1/data/output/problem1_test_output.csv'
 
-        # Write the fixed-width data to the input file
-        with open(self.input_file, 'w', encoding="windows-1252") as f:
-            f.write(self.fixed_width_data)
+
 
     def tearDown(self):
         # Cleans up the temporary files after each test to avoid conflicts 
@@ -41,6 +40,9 @@ class TestFixedWidthToCSVConverter(unittest.TestCase):
             os.remove(self.output_file)
 
     def testConversion(self):
+        # Write the fixed-width data to the input file
+        with open(self.input_file, 'w', encoding="windows-1252") as f:
+            f.write(self.fixed_width_data_with_header)
         converter = FixedWidthToDelimitedConvertor(self.spec, ",",self.input_file, self.output_file)
 
         # Convert fixed width to csv
@@ -56,14 +58,16 @@ class TestFixedWidthToCSVConverter(unittest.TestCase):
      
     #case 2
     def testConversionWithoutHeader(self):
-       
+        # Write the fixed-width data to the input file
+        with open(self.input_file, 'w', encoding="windows-1252") as f:
+            f.write(self.fixed_width_data)
         # Modify the spec to exclude headers
         self.spec["IncludeHeader"] = "False"
         
 
         # Expected CSV data without headers
         expected_csv_data_no_header = [
-            ['xyz', 'def', 'ghi14'],
+            ['xyz', 'def', 'ghi143'],
             ['jklmn', 'opqr', 'stuvwx']
         ]
 

@@ -1,0 +1,21 @@
+# Use an official Python runtime as a parent image
+FROM python:3.9-slim
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the current directory contents into the container at /app
+COPY . /app
+
+# Install any necessary dependencies from requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+
+
+# Set the environment variable to prevent Python from buffering stdout/stderr
+ENV PYTHONUNBUFFERED=1
+
+# Run all Python scripts on start
+#CMD ["python", "problem1_fixedwidth_file_generator.py"]
+# Run multiple Python scripts sequentially
+CMD ["bash", "-c", "python problem1_fixedwidth_file_generator.py && python problem1_parser_fixedwidth_to_delimited.py && python problem1_test_parser_fixedwidth_to_delimited.py"]

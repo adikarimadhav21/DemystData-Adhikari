@@ -34,27 +34,27 @@ class CSVFileGenerator:
         except Exception as e:
             print(f"Error while writing file {self.output_file}: {e}")    
 
-
-def main():
-    
-    msg="Generate a CSV file"
-    parser = argparse.ArgumentParser(description=msg)
-    parser.add_argument(
-        "--num_rows", 
-        type=int, 
-        default=5,  # Set default value to 100
-        help="Number of rows (default: 100)"
-    )
-
-    # Parse arguments
-    args = parser.parse_args()
-
-    output_file = "problem2/data/input/csv_file.txt"
-    num_rows = args.num_rows  
-    columns = ["first_name", "last_name", "address", "date_of_birth"]
-
-    generator = CSVFileGenerator(num_rows, output_file,columns)
-    generator.generate_csv_file()
-
-if __name__=='__main__':
-    main()
+#
+# def main():
+#
+#     msg="Generate a CSV file"
+#     parser = argparse.ArgumentParser(description=msg)
+#     parser.add_argument(
+#         "--num_rows",
+#         type=int,
+#         default=5,  # Set default value to 100
+#         help="Number of rows (default: 100)"
+#     )
+#
+#     # Parse arguments
+#     args = parser.parse_args()
+#
+#     output_file = "problem2/data/input/csv_file.txt"
+#     num_rows = args.num_rows
+#     columns = ["first_name", "last_name", "address", "date_of_birth"]
+#
+#     generator = CSVFileGenerator(num_rows, output_file,columns)
+#     generator.generate_csv_file()
+#
+# if __name__=='__main__':
+#     main()

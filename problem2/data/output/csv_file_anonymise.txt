@@ -1,6 +1,0 @@
-first_name,last_name,address,date_of_birth
-ztacR,iugO,MTIxOTQgUHJhdHQgUm9hZHMgU3VpdGUgOTYxLCBCcml0dGFueWJlcmcsIE1UIDA4NzU0,10/19/1973
-srevoS,fsbornN,VVNOUyBQZXJyeSwgRlBPIEFFIDcwMTA2,03/22/1945
-zimberlJ,{ancheR,VVNOUyBIZXJuYW5kZXosIEZQTyBBQSA0MzI0Mg==,03/28/2010
-fauriK,taterV,MTMwMzAgQmFrZXIgVmlzdGEgU3VpdGUgNTEzLCBBc2hsZXlmdXJ0LCBOSCAxNDgyMg==,01/12/1937
-ticolaM,oohnsoI,MzU2IEthdGhlcmluZSBHYXJkZW5zLCBTb3V0aCBKZXNzaWNhdmlldywgRk0gMDQzNzk=,09/25/1930
