@@ -45,7 +45,7 @@ class FixedWidthFileGenerator:
             row.append(padded_data)
         return ''.join(row)  
    
-    def generate_csv_file(self,num_rows, output_file):
+    def generate_fixedwidth_file(self,num_rows, output_file):
         """ Write output files as fixed_width
         """ 
         try:
@@ -107,7 +107,7 @@ def main():
 
     spec=read_spec(spec_file)
     generator = FixedWidthFileGenerator(spec)
-    generator.generate_csv_file(num_rows, output_file)
+    generator.generate_fixedwidth_file(num_rows, output_file)
 
 if __name__=='__main__':
     main()
