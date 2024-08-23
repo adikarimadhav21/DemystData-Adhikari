@@ -2,10 +2,10 @@
 ## Problem1
 ### Madhav Adhikari
 ### Description:
-- Fixed-Width File Generator ( generate_fixedwidth_file.py)
+- Fixed-Width File Generator ( problem1_fixedwidth_file_generator.py)
   
     This project will generate fixed-width files using random data based on spec.json specification.It allow user to specify the number of rows(default 100 ) and enconding will be windows-1252.
-- Fixed-Width to CSV Converter (parser_fixedwidth_to_delimited.py)  
+- Fixed-Width to CSV Converter (problem1_parser_fixedwidth_to_delimited.py)  
 
     This project will  convert fixed-width files into CSV format using Python(default comma (,)  delimiter and allow user to pass as well), without relying on external libraries like pandas. It includes a FixedWidthFileGenerator class that reads a fixed-width text file, based on the provided spec, and converts it to a delimited file. The project also includes unit tests (TestFixedWidthToCSVConverter) to ensure the correctness of the conversion logic.
 
@@ -38,12 +38,12 @@
   - git clone [repository_url](https://github.com/adikarimadhav21/DemystData-Adhikari.git)
   - install requirements.txt
   - run python problem1_fixedwidth_file_generator.py --num_rows <number_of_rows>
-  - run python python problem1_parser_fixedwidth_to_delimited.py --delimiter <name of delimiter>
+  - run  python problem1_parser_fixedwidth_to_delimited.py --delimiter <name_of_delimiter>
   - To run all unit tests, python problem1_test_parser_fixedwidth_to_delimited.py
 
 
 ### Example Command:
-- python python problem1_fixedwidth_file_generator.py --num_rows 300
+- python  problem1_fixedwidth_file_generator.py --num_rows 300
 - python problem1_parser_fixedwidth_to_delimited.py --delimiter "|"
-- python python problem1_test_parser_fixedwidth_to_delimited.py
+- python  problem1_test_parser_fixedwidth_to_delimited.py
 
