@@ -13,7 +13,7 @@ step 1 Swap first and last characters
 step 2 first char increase assci value and last char assci decrease 
 
 """
-def mask_string(self,s):
+def mask_string(s):
     if len(s) == 0:
         return s
     # If only one character, just increment its ASCII value by 1
@@ -33,7 +33,7 @@ def mask_string(self,s):
     # Return the modified string with swapped and changed first/last chars
     return modified_first + s[1:-1] + modified_last
 
-def unmask_string(self,s):
+def unmask_string(s):
     if len(s) == 0:
         return s
     # Reverse the change by decrementing the ASCII value by 1
@@ -53,13 +53,13 @@ def unmask_string(self,s):
 def anonymise_data(input_file, output_file, anonymise_columns):
     # Initialize Spark session
     spark = SparkSession.builder.master("local[1]").config("spark.network.timeout", "600s").appName("Data Anonymization").getOrCreate()
-    print(spark)
-    # Define UDFs for masking and encoding
-    base64_udf = udf(base_64_encoding, StringType())
-    mask_udf = udf(mask_string, StringType())
 
     # Read the CSV into a Spark DataFrame
     df = spark.read.csv(input_file, header=True)
+
+    # Define UDFs for masking and encoding
+    base64_udf = udf(lambda x:base_64_encoding(x), StringType())
+    mask_udf = udf(lambda  x:mask_string(x), StringType())
 
     # Apply the transformations
     for column in anonymise_columns:
@@ -69,6 +69,5 @@ def anonymise_data(input_file, output_file, anonymise_columns):
             df = df.withColumn(column, mask_udf(col(column)))
 
     # Save the anonymized data back to CSV
-    #df.show()
     df.write.csv(output_file, header=True,mode='overwrite')
     print(f"Anonymized CSV file written to {output_file}")
