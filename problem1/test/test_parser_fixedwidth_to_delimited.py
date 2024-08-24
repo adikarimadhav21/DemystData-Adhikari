@@ -82,5 +82,5 @@ class TestFixedWidthToCSVConverter(unittest.TestCase):
         #test case2
         self.assertEqual(output_data, expected_csv_data_no_header)
 
-if __name__ == "__main__":
-    unittest.main()
+# if __name__ == "__main__":
+#     unittest.main()

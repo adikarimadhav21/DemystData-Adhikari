@@ -95,12 +95,3 @@ class AnonymizeData:
         self.close_files(input_file, out_file) 
         print(f"Anoymized CSV file in {self.output_file}")   
 
-# def main():
-#     input_file="../data/input/csv_file.txt"
-#     output_file="../data/output/csv_file_anonymise.txt"
-#     anonymise_columns=["first_name", "last_name", "address"]
-#     anoymise=AnonymizeData(input_file,output_file,anonymise_columns)
-#     anoymise.anoymise_data()
-#
-# if __name__=='__main__':
-#     main()
